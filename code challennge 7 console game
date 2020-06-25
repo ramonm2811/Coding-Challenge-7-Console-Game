@@ -119,17 +119,27 @@ var q3 = new Question('What does best describe coding?', ['Boring', 'Hard', 'Fun
 
 //Saving the questions onto an array
 var questions = [q1, q2, q3];
-var answer;
+
 var score = 0;
 
 
-while (answer !== 'exit'){
+while (true){
 //Creating a random number
 var n = Math.floor(Math.random()*questions.length);
 //Starting the Game
 questions[n].displayQuestion();
-answer = parseInt(prompt('Please Select The Correct Answer!'));
+var answer = prompt('Please Select The Correct Answer!');
+if (answer == 'exit'){
+  console.log('Game is Over');
+  break;
+}else {
+  answer = parseInt(answer);
+
 questions[n].checkAnswer(answer);
 console.log(score);
+}
 };
+
+
 })();
+
